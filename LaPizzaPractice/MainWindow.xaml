@@ -5,8 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LaPizzaPractice"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" MinHeight="520" MinWidth="800" Height="520" Width="800" Icon="/pizza_ico.ico">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/background.png" Stretch="UniformToFill"/>
+        </Grid.Background>
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" >
+            <Grid.Background>
+                <ImageBrush TileMode="Tile" Stretch="UniformToFill" ImageSource="/header.png" />
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Width="120" Height="45" HorizontalAlignment="Left" Margin="50,5" Source="/LaPizza.png"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Frame x:Name="FrmMain" NavigationUIVisibility="Hidden" />
+        </Grid>
     </Grid>
 </Window>

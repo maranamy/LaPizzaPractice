@@ -8,4 +8,47 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="background.png" />
+    <None Remove="basket.png" />
+    <None Remove="header.png" />
+    <None Remove="LaPizza.png" />
+    <None Remove="main.png" />
+    <None Remove="pizza_autho.jpg" />
+    <None Remove="pizza_ico.ico" />
+    <None Remove="pizza_reg.jpg" />
+    <None Remove="profile.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="background.png" />
+    <Resource Include="basket.png" />
+    <Resource Include="header.png" />
+    <Resource Include="LaPizza.png" />
+    <Resource Include="main.png" />
+    <Resource Include="pizza_autho.jpg" />
+    <Resource Include="pizza_ico.ico" />
+    <Resource Include="pizza_reg.jpg" />
+    <Resource Include="profile.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>

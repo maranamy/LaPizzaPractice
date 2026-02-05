@@ -1,0 +1,123 @@
+﻿<Page x:Class="LaPizzaPractice.Pages.UserPages.MainUserPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LaPizzaPractice.Pages.UserPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainUserPage">
+
+    <Page.Resources>
+        <DataTemplate x:Key="foodCard">
+
+            <!-- ___________КАРТОЧКА ТОВАРА______________ -->
+
+            <Border CornerRadius="20" Height="200" Width="500" Margin="10" Background="#4C000000" BorderBrush="White" BorderThickness="1">
+                <Grid>
+                    <!-- 🍕 -->
+                    <StackPanel Orientation="Vertical" Margin="50,5" Width="400">
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <TextBlock Style="{StaticResource DefTextBlock}" Text="🍕"  FontSize="20" MaxHeight="40"/>
+                            <TextBlock x:Name="foodName" Style="{StaticResource DefTextBlock}" Text="{Binding PizzaName}" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold"/>
+                            <TextBlock Style="{StaticResource DefTextBlock}" Text="🍕"  FontSize="20" MaxHeight="40"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource DefTextBlock}" Text="Категория: "  TextWrapping="Wrap" FontSize="14" MaxHeight="40"/>
+                            <TextBlock x:Name="сategory" Style="{StaticResource DefTextBlock}" Text="{Binding Category.CategoryName}"  FontSize="14" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource DefTextBlock}" Text="Размер: "  TextWrapping="Wrap" FontSize="14" MaxHeight="40"/>
+                            <TextBlock x:Name="size" Style="{StaticResource DefTextBlock}" Text="{Binding PizzaSize}"  FontSize="14" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource DefTextBlock}" Text="Описание начинки: "  TextWrapping="Wrap" FontSize="14" MaxHeight="40"/>
+                            <TextBlock x:Name="fillling" Style="{StaticResource DefTextBlock}" Text="{Binding FillingDescr}"  TextWrapping="Wrap" FontSize="14" MaxHeight="40"/>
+                        </StackPanel>
+
+                    </StackPanel>
+                    <Border x:Name="addToBasket" Background="#4CFF6500" Height="30" Margin="50,5,50,10" CornerRadius="20" BorderBrush="White" BorderThickness="1" VerticalAlignment="Bottom">
+                        <TextBlock Text="Заказать" Style="{StaticResource DefTextBlock}"  HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+                    </Border>
+                </Grid>
+
+            </Border>
+
+            <!-- ___________________________________ -->
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid>
+        <!--Grid.Background>Black</Grid.Background-->
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="80"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="0" Grid.Row="0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Количество ваших заказаов на текущий момент: " Style="{StaticResource DefTextBlock}"/>
+                <TextBlock Style="{StaticResource DefTextBlock}"/>
+            </StackPanel>
+        </Grid>
+
+            <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="60,20">
+                <Border CornerRadius="20" Width="350" Background="GhostWhite" Height="35">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Поиск" Style="{StaticResource DefTextBlock}" Foreground="#FF757575" VerticalAlignment="Center"/>
+                        <TextBox x:Name="txtSearch" Width="280" Height="30" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+
+                <ComboBox x:Name="cmbFilter"  SelectedIndex="0" 
+           VerticalAlignment="Center" Width="150" IsReadOnly="True" Height="28"/>
+                <Border x:Name="resetBrd" Background="#FFFF6500" Height="35" Width="80" CornerRadius="20">
+                    <TextBlock Text="Сброс" Style="{StaticResource DefTextBlock}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+                </Border>
+            </StackPanel>
+        </Grid>
+
+
+        <Grid Grid.Column="0" Grid.Row="2">
+
+
+
+
+            <ScrollViewer  Margin="30,10,0,0">
+                <ItemsControl Name="foodItemsControl"  ItemTemplate="{StaticResource foodCard}"  HorizontalAlignment="Center">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="0" Grid.RowSpan="3">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                <Button Style="{StaticResource MenuBtn}" Background="#66FF0000">
+                    <Image Source="/main.png" Margin="2" />
+                </Button>
+                <Button Style="{StaticResource MenuBtn}" >
+                    <Image Source="/profile.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                </Button>
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</Page>

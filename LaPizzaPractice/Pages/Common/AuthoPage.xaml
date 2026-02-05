@@ -1,0 +1,56 @@
+﻿<Page x:Class="LaPizzaPractice.Pages.Common.AuthoPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LaPizzaPractice.Pages.Common"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AuthoPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="1" Grid.Row="0" Grid.RowSpan="4">
+            <Grid.Background>
+                <ImageBrush TileMode="Tile" Stretch="UniformToFill" ImageSource="/pizza_reg.jpg"/>
+            </Grid.Background>
+        </Grid>
+
+        <TextBlock Text="Вход" Style="{StaticResource DefTextBlock}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>
+
+        <StackPanel Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" VerticalAlignment="Center" Margin="40,10">
+            <TextBlock Text="Логин:" Style="{StaticResource DefTextBlock}"/>
+            <TextBox x:Name="tbxLogin"/>
+            <TextBlock Text="Пароль:"  Style="{StaticResource DefTextBlock}"/>
+            <TextBox x:Name="tbxPassword"/>
+            <Button Margin="5,40,5,5" Style="{StaticResource DefaultBtn}"  HorizontalAlignment="Stretch" Content="Войти"/>
+            <!--StackPanel Orientation="Horizontal" Margin="5,10">
+                <TextBlock Text="Ещё нет аккаунта?" Style="{StaticResource DefTextBlock}" VerticalAlignment="Center"/>
+                <Button Content="Зарегистрироваться" BorderBrush="#00707070" Click="ToRegistrPage_Click" >
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource DefaultBtn}">
+                            <Setter Property="Foreground" Value="Orange"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Height" Value="30"/>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel-->
+
+        </StackPanel>
+
+    </Grid>
+</Page>

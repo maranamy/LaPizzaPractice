@@ -8,6 +8,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LaPizzaPractice.Pages.Common;
+using LaPizzaPractice.Pages.UserPages;
 
 namespace LaPizzaPractice
 {
@@ -19,6 +21,7 @@ namespace LaPizzaPractice
         public MainWindow()
         {
             InitializeComponent();
+            FrmMain.Navigate(new MainUserPage());
         }
     }
 }
