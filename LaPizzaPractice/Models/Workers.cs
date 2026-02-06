@@ -11,25 +11,30 @@ namespace LaPizzaPractice.Models
     {
         [Key]
         [Column("id")]
+        [Required]
         public int Id { get; set; }
 
 
         [Column("w_name")]
         [Required]
+        [MaxLength(80)]
         public string WorkerName { get; set; } = string.Empty;
 
         [Column("w_surname")]
         [Required]
+        [MaxLength(80)]
         public string WorkerSurn { get; set; } = string.Empty;
 
         [Column("w_patronymic")]
-        [Required]
-        public string WorkerPatronimyc { get; set; } = string.Empty;
+        [MaxLength(80)]
+        public string? WorkerPatronimyc { get; set; }
 
         [Column("role_id")]
+        [Required]
         public int RoleId { get; set; }
 
         [ForeignKey("RoleId")]
+        [Required]
         public Roles WorkerRole { get; set; } = null!;
     }
 }

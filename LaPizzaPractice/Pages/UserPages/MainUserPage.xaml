@@ -109,7 +109,7 @@
 
         <Grid Grid.Column="1" Grid.Row="0" Grid.RowSpan="3">
             <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                <Button Style="{StaticResource MenuBtn}" Background="#66FF0000">
+                <Button Style="{StaticResource MenuBtn}" Background="#66FF0000" Click="GoProfile_Click">
                     <Image Source="/main.png" Margin="2" />
                 </Button>
                 <Button Style="{StaticResource MenuBtn}" >

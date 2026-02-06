@@ -15,6 +15,7 @@ namespace LaPizzaPractice.Models
 
         [Column("status_name")]
         [Required]
+        [MaxLength(50)]
         public string StatusName { get; set; } = null!;
     }
 }

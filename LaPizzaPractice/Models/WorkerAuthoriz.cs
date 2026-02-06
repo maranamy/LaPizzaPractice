@@ -11,9 +11,11 @@ namespace LaPizzaPractice.Models
     {
         [Key]
         [Column("id")]
+        [Required]
         public int Id { get; set; }
 
         [Column("worker_id")]
+        [Required]
         public int WorkerId { get; set; }
 
         [ForeignKey("WorkerId")]
@@ -21,10 +23,12 @@ namespace LaPizzaPractice.Models
 
         [Column("login")]
         [Required]
+        [MaxLength(80)]
         public string Login { get; set; } = null!;
 
         [Column("password_hash")]
         [Required]
+        [MaxLength(255)]
         public string Password { get; set; } = null!;
     }
 }

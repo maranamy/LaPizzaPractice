@@ -23,5 +23,28 @@ namespace LaPizzaPractice.Data
         public DbSet<WorkerAuthoriz> WorkerAuthoSet { get; set; }
         public DbSet<WorkerPerData> WorkerPersDataSet { get; set; }
         public DbSet<Workers> WorkersSet { get; set; }
+
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Orders>(entity =>
+            {
+                entity.Property(e => e.Cost)
+                    .HasColumnName("cost")
+                    .HasColumnType("decimal(12,2)")  
+                    .HasPrecision(12, 2)
+                    .IsRequired();
+            });
+
+            modelBuilder.Entity<Products>(entity =>
+            {
+                entity.Property(e => e.Price)
+                    .HasColumnName("price")
+                    .HasColumnType("decimal(12,2)")
+                    .HasPrecision(12,2)
+                    .IsRequired();
+            });
+        }
     }
 }

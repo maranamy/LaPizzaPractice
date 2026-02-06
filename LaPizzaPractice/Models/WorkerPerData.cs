@@ -11,9 +11,11 @@ namespace LaPizzaPractice.Models
     {
         [Key]
         [Column("id")]
+        [Required]
         public int Id { get; set; }
 
         [Column("worker_id")]
+        [Required]
         public int WorkerId { get; set; }
 
         [ForeignKey("WorkerId")]
@@ -21,15 +23,15 @@ namespace LaPizzaPractice.Models
 
 
         [Column("phone")]
-        [Required]
-        public string WorkerPhone { get; set; } = null!;
+        [RegularExpression(@"^\+7\d{10}$", ErrorMessage = "Номер должен иметь следующий паттерн: +7хххххххххх")]
+        public string? WorkerPhone { get; set; }
 
         [Column("email")]
-        [Required]
-        public string Email { get; set; } = null!;
+        [MaxLength(150)]
+        [RegularExpression(@"^[a-zA-Z0-9][a-zA-Z0-9._]{0,63}@pizza\.ru$", ErrorMessage = "Неверная структура адреса")]
+        public string? Email { get; set; } 
 
         [Column("birthdate")]
-        [Required]
         public DateTime Birthdate { get; set; }
 
         [Column("address_id")]

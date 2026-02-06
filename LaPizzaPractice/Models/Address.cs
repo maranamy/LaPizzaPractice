@@ -15,17 +15,21 @@ namespace LaPizzaPractice.Models
 
         [Column("city_name")]
         [Required]
+        [MaxLength(100)]
         public string CityName { get; set; } = null!;
 
         [Column("street_name")]
         [Required]
+        [MaxLength(120)]
         public string StreetName { get; set; } = null!;
 
         [Column("house_number")]
         [Required]
+        [MaxLength(20)]
         public string HouseNumber { get; set; } = null!;
 
         [Column("flat_number")]
-        public string FlatNumber { get; set; }
+        [MaxLength(10)]
+        public string? FlatNumber { get; set; }
     }
 }

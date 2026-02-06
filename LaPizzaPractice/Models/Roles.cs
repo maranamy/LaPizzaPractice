@@ -11,10 +11,12 @@ namespace LaPizzaPractice.Models
     {
         [Key]
         [Column("id")]
+        [Required]
         public int Id { get; set; }
 
         [Column("role_name")]
         [Required]
+        [MaxLength(60)]
         public string RoleName { get; set; } = string.Empty;
     }
 }

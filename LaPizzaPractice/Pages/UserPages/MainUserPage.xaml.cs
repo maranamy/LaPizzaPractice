@@ -24,10 +24,12 @@ namespace LaPizzaPractice.Pages.UserPages
     public partial class MainUserPage : Page
     {
         private List<Products> allPizza = new List<Products>();
-        public MainUserPage()
+        private UserAuthoriz client = new UserAuthoriz();
+        public MainUserPage(UserAuthoriz user)
         {
             InitializeComponent();
             LoadPizzas();
+            client = user;
         }
 
         private void LoadPizzas()
@@ -40,6 +42,11 @@ namespace LaPizzaPractice.Pages.UserPages
                 .ToList();
 
             foodItemsControl.ItemsSource = allPizza;
+        }
+
+        private void GoProfile_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ProfilePage(client));
         }
     }
 }

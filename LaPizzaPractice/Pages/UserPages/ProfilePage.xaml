@@ -31,40 +31,44 @@
                         </Rectangle.Fill>
                     </Rectangle>
                     <StackPanel Orientation="Vertical" Margin="20,10" >
-                        <Border Background="#19FFFFFF" BorderBrush="White" BorderThickness="1"  Height="40"  Margin="0,5">
+                        
+                        <Border Background="#19FFFFFF" BorderBrush="White" BorderThickness="1"  Height="40"  Margin="0,5">   <!-- ИМЯ КЛИЕНТА-->
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Имя: " Style="{StaticResource DefTextBlock}"
-                       FontSize="20"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Center"/>
-                                <TextBlock x:Name="userName"  Style="{StaticResource DefTextBlock}"
-                       FontSize="20"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Center"/>
+                                       FontSize="20"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"/>
+                                <TextBlock x:Name="userName"  Style="{StaticResource DefTextBlock}" Text="{Binding ClientAutho.ClientName}"
+                                       FontSize="20"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"/>
                             </StackPanel>
                         </Border>
-                        <Border Background="#19FFFFFF" BorderBrush="White" BorderThickness="1"  Height="40"  Margin="0,5">
+                        
+                        
+                        <Border Background="#19FFFFFF" BorderBrush="White" BorderThickness="1"  Height="40"  Margin="0,5">    <!-- ФАМИЛИЯ КЛИЕНТА-->
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Фамилия: " Style="{StaticResource DefTextBlock}"
-                       FontSize="20"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Center"/>
-                                <TextBlock x:Name="userSurname"  Style="{StaticResource DefTextBlock}"
-                       FontSize="20"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Center"/>
+                                       FontSize="20"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"/>
+                                <TextBlock x:Name="userSurname"  Style="{StaticResource DefTextBlock}" Text="{Binding ClientAutho.ClientSurn}"
+                                       FontSize="20"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"/>
                             </StackPanel>
                         </Border>
-                        <Border Background="#19FFFFFF" BorderBrush="White" BorderThickness="1"  Height="40"  Margin="0,5">
+                        
+                        <Border Background="#19FFFFFF" BorderBrush="White" BorderThickness="1"  Height="40"  Margin="0,5">    <!-- ТЕЛЕФОН КЛИЕНТА-->
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Номер телефона: " Style="{StaticResource DefTextBlock}"
-                       FontSize="20"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Center"/>
-                                <TextBlock x:Name="userPhone" Style="{StaticResource DefTextBlock}"
-                       FontSize="20"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Center"/>
+                                       FontSize="20"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"/>     
+                                <TextBlock x:Name="userPhone" Text="{Binding ClientPhone}"  Style="{StaticResource DefTextBlock}"
+                                       FontSize="20"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"/>
                             </StackPanel>
                         </Border>
                     </StackPanel>
@@ -74,11 +78,11 @@
 
         <Grid Grid.Column="1">
             <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                <Button Style="{StaticResource MenuBtn}">
-                    <Image Source="/Resources/main.png" Margin="2"/>
+                <Button Style="{StaticResource MenuBtn}" Click="GoHome_Click">
+                    <Image Source="/main.png" Margin="2"/>
                 </Button>
                 <Button Style="{StaticResource MenuBtn}" Background="#66FF0000">
-                    <Image Source="/Resources/profile.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                    <Image Source="/profile.png" RenderOptions.BitmapScalingMode="HighQuality"/>
                 </Button>
             </StackPanel>
 

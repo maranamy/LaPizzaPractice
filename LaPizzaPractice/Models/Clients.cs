@@ -11,14 +11,17 @@ namespace LaPizzaPractice.Models
     {
         [Key]
         [Column("id")]
+        [Required]
         public int Id { get; set; }
 
         [Column("cl_name")]
         [Required]
+        [MaxLength(80)]
         public string ClientName { get; set; } = string.Empty;
 
         [Column("cl_surname")]
         [Required]
+        [MaxLength(80)]
         public string ClientSurn { get; set; } = string.Empty;
 
         [Column("address_id")]

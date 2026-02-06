@@ -11,24 +11,29 @@ namespace LaPizzaPractice.Models
     {
         [Key]
         [Column("id")]
+        [Required]
         public int Id { get; set; }
 
         [Column("client_id")]
+        [Required]
         public int ClientID { get; set; }
 
         [ForeignKey("ClientID")]
         public Clients Client { get; set; } = null!;
 
         [Column("product_id")]
+        [Required]
         public int ProductId { get; set; }
 
         [ForeignKey("ProductId")]
         public Products Product { get; set; } = null!;
 
         [Column("quantity")]
+        [Required]
         public int Quantity { get; set; }
 
         [Column("status_id")]
+        [Required]
         public int StatusID { get; set; }
 
         [ForeignKey("StatusID")]
@@ -39,10 +44,12 @@ namespace LaPizzaPractice.Models
 
 
         [Column("cost")]
-        public int Cost { get; set; }
+        [Required]
+        public decimal Cost { get; set; }
 
 
         [Column("delivery_addres")]
+        [Required]
         public int AddressId { get; set; }
 
         [ForeignKey("AddressId")]
