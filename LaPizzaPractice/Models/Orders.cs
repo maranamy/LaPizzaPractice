@@ -14,19 +14,11 @@ namespace LaPizzaPractice.Models
         [Required]
         public int Id { get; set; }
 
-        [Column("client_id")]
+        [Column("product_name")]
         [Required]
-        public int ClientID { get; set; }
+        [MaxLength(50)]
+        public string ProductName { get; set; } = null!;
 
-        [ForeignKey("ClientID")]
-        public Clients Client { get; set; } = null!;
-
-        [Column("product_id")]
-        [Required]
-        public int ProductId { get; set; }
-
-        [ForeignKey("ProductId")]
-        public Products Product { get; set; } = null!;
 
         [Column("quantity")]
         [Required]
@@ -34,9 +26,9 @@ namespace LaPizzaPractice.Models
 
         [Column("status_id")]
         [Required]
-        public int StatusID { get; set; }
+        public int StatusId { get; set; }
 
-        [ForeignKey("StatusID")]
+        [ForeignKey("StatusId")]
         public ActiveStatus Status { get; set; } = null!;
 
         [Column("is_active")]

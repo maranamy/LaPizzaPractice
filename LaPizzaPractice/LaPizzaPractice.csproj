@@ -14,10 +14,13 @@
     <None Remove="header.png" />
     <None Remove="LaPizza.png" />
     <None Remove="main.png" />
+    <None Remove="order.png" />
     <None Remove="pizza_autho.jpg" />
     <None Remove="pizza_ico.ico" />
     <None Remove="pizza_reg.jpg" />
     <None Remove="profile.png" />
+    <None Remove="statistics.png" />
+    <None Remove="workers.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,10 +33,13 @@
     <Resource Include="header.png" />
     <Resource Include="LaPizza.png" />
     <Resource Include="main.png" />
+    <Resource Include="order.png" />
     <Resource Include="pizza_autho.jpg" />
     <Resource Include="pizza_ico.ico" />
     <Resource Include="pizza_reg.jpg" />
     <Resource Include="profile.png" />
+    <Resource Include="statistics.png" />
+    <Resource Include="workers.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -52,7 +58,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Dto\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

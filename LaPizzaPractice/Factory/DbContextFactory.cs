@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LaPizzaPractice.Service
+namespace LaPizzaPractice.Factory
 {
     public static class DbContextFactory
     {

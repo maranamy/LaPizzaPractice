@@ -36,7 +36,7 @@
             <TextBox x:Name="tbxLogin"/>
             <TextBlock Text="Пароль:"  Style="{StaticResource DefTextBlock}"/>
             <TextBox x:Name="tbxPassword"/>
-            <Button Margin="5,40,5,5" Style="{StaticResource DefaultBtn}"  HorizontalAlignment="Stretch" Content="Войти"/>
+            <Button Margin="5,40,5,5" Style="{StaticResource DefaultBtn}"  HorizontalAlignment="Stretch" Content="Войти" Click="EnterBtn_Click"/>
             <!--StackPanel Orientation="Horizontal" Margin="5,10">
                 <TextBlock Text="Ещё нет аккаунта?" Style="{StaticResource DefTextBlock}" VerticalAlignment="Center"/>
                 <Button Content="Зарегистрироваться" BorderBrush="#00707070" Click="ToRegistrPage_Click" >

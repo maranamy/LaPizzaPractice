@@ -1,5 +1,5 @@
 ﻿using LaPizzaPractice.Models;
-using LaPizzaPractice.Service;
+using LaPizzaPractice.Factory;
 using Microsoft.EntityFrameworkCore;
 using LaPizzaPractice.Data;
 using System;
@@ -23,20 +23,31 @@ namespace LaPizzaPractice.Pages.UserPages
     /// </summary>
     public partial class ProfilePage : Page
     {
-
-        private UserAuthoriz _client = new UserAuthoriz();
         public ProfilePage(UserAuthoriz user)
         {
             InitializeComponent();
-            LoadPizzas();
-            _client = user;
+            LoadClient(user);
         }
 
-        private void LoadPizzas()
+        private void LoadClient(UserAuthoriz user)
         {
             using var db = DbContextFactory.GetContext();
 
-            var client = db.ClientsSet.Where(c => c.Id == _client.Id).FirstOrDefault();
+            var client = db.UserAuthoSet.Include(u => u.ClientAutho).FirstOrDefault(c => c.Id == user.Id);
+
+            if (client != null)
+            {
+                this.DataContext = client;
+            }
+
+            else
+            {
+                this.DataContext = new UserAuthoriz
+                {
+                    ClientAutho = new Clients(),
+                    ClientPhone = "not found"
+                };
+            }
         }
 
         private void GoHome_Click(object sender, RoutedEventArgs e)

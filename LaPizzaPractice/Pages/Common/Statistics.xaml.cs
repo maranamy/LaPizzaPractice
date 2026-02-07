@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -8,20 +10,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using LaPizzaPractice.Pages.Common;
-using LaPizzaPractice.Pages.UserPages;
 
-namespace LaPizzaPractice
+namespace LaPizzaPractice.Pages.Common
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для Statistics.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Statistics : Page
     {
-        public MainWindow()
+        public Statistics()
         {
             InitializeComponent();
-            FrmMain.Navigate(new AuthoPage());
         }
     }
 }

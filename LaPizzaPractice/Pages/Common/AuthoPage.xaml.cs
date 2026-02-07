@@ -1,6 +1,7 @@
 ﻿using LaPizzaPractice.Models;
 using LaPizzaPractice.Pages.UserPages;
-using LaPizzaPractice.Service;
+using LaPizzaPractice.Pages.ShefPages;
+using LaPizzaPractice.Factory;
 using System;
 using System.Collections.Generic;
 using System.Security.Policy;
@@ -16,6 +17,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using LaPizzaPractice.Pages.ManagerPages;
+using LaPizzaPractice.Pages.BossPages;
 
 namespace LaPizzaPractice.Pages.Common
 {
@@ -30,7 +33,56 @@ namespace LaPizzaPractice.Pages.Common
             InitializeComponent();
         }
 
-        private void btn_Enter(object sender, RoutedEventArgs e)
+        public string RoleIs(WorkerAuthoriz user)
+        {
+            var db = DbContextFactory.GetContext();
+            var worker = db.WorkersSet.Where(x => x.Id == user.Id).FirstOrDefault();
+            string role = null!;
+            if (worker != null) role = db.RolesSet.FirstOrDefault(x => x.Id == worker.RoleId)?.RoleName ?? "Роль не найдена";
+            return role;
+        }
+
+        private void LoadWorkerPage(string role, WorkerAuthoriz user)
+        {
+            switch (role)
+            {
+                case "Курьер":
+                    MessageBox.Show("У вашей роли пока что нет необходимого функционала в системе\n" +
+                        $"Роль: {role}");
+                    break;
+                case "Менеджер":
+                    NavigationService.Navigate(new AllOrders());
+                    //MessageBox.Show("Вы вошли как:" + role);
+                    break;
+                case "Пиццамейкер":
+                    MessageBox.Show("У вашей роли пока что нет необходимого функционала в системе\n" +
+                        $"Роль: {role}");
+                    break;
+                case "Управляющий":
+                    NavigationService.Navigate(new MenuNotFun());
+                    //MessageBox.Show("Вы вошли как:" + role);
+                    break;
+                case "Шеф":
+                    NavigationService.Navigate(new ShefPages.Menu(user));
+                    //MessageBox.Show("Вы вошли как:" + role);
+                    break;
+            }
+        }
+
+        private void LoadUserPage(string role, UserAuthoriz user)
+        {
+            NavigationService.Navigate(new MainUserPage(user));
+            MaxScreen();
+            //MessageBox.Show("Добро пожаловать");
+        }
+
+        public void MaxScreen()
+        {
+            var win = Window.GetWindow(this);
+            win.WindowState = WindowState.Maximized;
+        }
+
+        private void EnterBtn_Click(object sender, RoutedEventArgs e)
         {
             var db = DbContextFactory.GetContext();
             string login = tbxLogin.Text.Trim();
@@ -57,47 +109,6 @@ namespace LaPizzaPractice.Pages.Common
                 }
                 else MessageBox.Show("Вы ввели логин или пароль неверно!");
             }
-        }
-
-        public string RoleIs(WorkerAuthoriz user)
-        {
-            var db = DbContextFactory.GetContext();
-            var worker = db.WorkersSet.Where(x => x.Id == user.Id).FirstOrDefault();
-            string role = db.RolesSet.Where(x => x.Id == worker.RoleId).FirstOrDefault().RoleName;
-            return role;
-        }
-
-        private void LoadWorkerPage(string role, WorkerAuthoriz user)
-        {
-            switch (role)
-            {
-                case "Курьер":
-                    MessageBox.Show("У вашей роли пока что нет необходимого функционала в системе\n" +
-                        $"Роль: {role}");
-                    break;
-                case "Менеджер":
-                    //NavigationService.Navigate(new AgentPage(user, role));
-                    //MessageBox.Show("Вы вошли как:" + role);
-                    break;
-                case "Пиццамейкер":
-                    MessageBox.Show("У вашей роли пока что нет необходимого функционала в системе\n" +
-                        $"Роль: {role}");
-                    break;
-                case "Управляющий":
-                    //NavigationService.Navigate(new AgentPage(user, role));
-                    //MessageBox.Show("Вы вошли как:" + role);
-                    break;
-                case "Шеф":
-                    //NavigationService.Navigate(new AgentPage(user, role));
-                    //MessageBox.Show("Вы вошли как:" + role);
-                    break;
-            }
-        }
-
-        private void LoadUserPage(string role, UserAuthoriz user)
-        {
-            NavigationService.Navigate(new MainUserPage(user));
-            //MessageBox.Show("Вы вошли как:" + role);
         }
     }
 }

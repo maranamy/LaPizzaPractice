@@ -16,10 +16,10 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
-            <StackPanel Orientation="Vertical" Margin="100,40">
+            <StackPanel Orientation="Vertical" Margin="100" HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Привет, " Style="{StaticResource DefTextBlock}" FontSize="30"/>
-                    <TextBlock x:Name="helloUser" Style="{StaticResource DefTextBlock}" FontSize="30"/>
+                    <TextBlock x:Name="helloUser" Style="{StaticResource DefTextBlock}" Text="{Binding ClientAutho.ClientName}" FontSize="30"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="20">
                     <Rectangle Width="10" VerticalAlignment="Stretch">

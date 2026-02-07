@@ -1,5 +1,6 @@
 ﻿using LaPizzaPractice.Models;
-using LaPizzaPractice.Service;
+using LaPizzaPractice.Pages.Common;
+using LaPizzaPractice.Factory;
 using Microsoft.EntityFrameworkCore;
 using LaPizzaPractice.Data;
 using System;
@@ -48,5 +49,27 @@ namespace LaPizzaPractice.Pages.UserPages
         {
             NavigationService.Navigate(new ProfilePage(client));
         }
+
+        private void CreateOrder_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var border = sender as Border;
+            if (border == null) return;
+
+            var orderPizza = border.DataContext as Products;
+            if (orderPizza == null) return;
+
+            using var db = DbContextFactory.GetContext();
+
+            var customer = new Clients();
+            if (client!=null) customer = db.ClientsSet.FirstOrDefault(c => c.Id == client.ClientId);
+            var address = db.AddressSet.FirstOrDefault(a => a.Id == customer.AddressId);
+            
+
+            CreateOrder win = new CreateOrder(false, orderPizza, address);
+            win.Owner = Application.Current.MainWindow;
+            win.ShowDialog();
+        }
+
+
     }
 }

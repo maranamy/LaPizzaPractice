@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LaPizzaPractice"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="520" MinWidth="800" Height="520" Width="800" Icon="/pizza_ico.ico">
+        Title="MainWindow" MinHeight="520" MinWidth="800" Height="520" Width="800"
+        WindowStartupLocation="CenterScreen" Icon="/pizza_ico.ico">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/background.png" Stretch="UniformToFill"/>

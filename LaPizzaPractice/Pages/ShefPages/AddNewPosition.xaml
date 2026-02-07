@@ -1,0 +1,112 @@
+﻿<Window x:Class="LaPizzaPractice.Pages.ShefPages.AddNewPosition"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LaPizzaPractice.Pages.ShefPages"
+        mc:Ignorable="d"
+        Title="AddNewPosition" Height="450" ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" Width="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/pizza_autho.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="85"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="#9B000000">
+            <TextBlock Text="Работа с меню" Style="{StaticResource DefTextBlock}" 
+                FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"
+                VerticalAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="35">
+            <StackPanel>
+
+                <Grid  Margin="5,20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+
+                    <Border Grid.Row="0" Grid.Column="0" Background="#9B000000" CornerRadius="20" Height="50" Margin="3">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0">
+                            <TextBlock Text="Пицца: " Style="{StaticResource DefTextBlock}" FontSize="20"/>
+                            <TextBox x:Name="namePizza"  Width="242" BorderBrush="White" />
+                        </StackPanel>
+                    </Border>
+
+
+                    <Border Grid.Row="0" Grid.Column="1" Background="#9B000000" CornerRadius="20" Height="50" Margin="3">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0">
+                            <TextBlock Text="Категория: " Style="{StaticResource DefTextBlock}" FontSize="20"/>
+                            <ComboBox x:Name="chooseCategory" Width="208" BorderBrush="White"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Grid.Row="1" Grid.Column="0" Background="#9B000000" CornerRadius="20" Height="50" Margin="3">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0">
+                            <TextBlock Text="Цена: " Style="{StaticResource DefTextBlock}" FontSize="20"/>
+                            <TextBox x:Name="pricePizza" Width="255" BorderBrush="White" />
+                        </StackPanel>
+                    </Border>
+
+
+                    <Border Grid.Row="1" Grid.Column="1"  Background="#9B000000" CornerRadius="20" Height="50" Margin="3">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0">
+                            <TextBlock Text="Размер: " Style="{StaticResource DefTextBlock}" FontSize="20"/>
+                            <TextBox x:Name="size" Width="237" />
+                        </StackPanel>
+                    </Border>
+
+
+                    <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Background="#9B000000" CornerRadius="20" Height="50" Margin="3">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0">
+                            <TextBlock Text="Начинка: " Style="{StaticResource DefTextBlock}" FontSize="20"/>
+                            <TextBox x:Name="filling" Width="584" />
+                        </StackPanel>
+                    </Border>
+                    
+                </Grid>
+              
+            </StackPanel>
+
+            <Grid VerticalAlignment="Bottom" Margin="5,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Border CornerRadius="20" Grid.Column="0" Margin="0,0,5,0"
+                 Background="#7F000000"
+                 BorderBrush="White" BorderThickness="1">
+                    <Button Content="Отмена"
+                     Background="Transparent" 
+                     BorderThickness="0"
+                     Foreground="White"
+                     FontSize="18"
+                     Cursor="Hand" Style="{StaticResource DefaultBtn}" Height="35" Click="Cancel_Click"/>
+                </Border>
+                <Border CornerRadius="20" Grid.Column="1" Margin="5,0,0,0"
+                 Background="#CCB20000"
+                 BorderBrush="White" BorderThickness="1">
+                    <Button Content="Сохранить"
+                     Background="Transparent" 
+                     BorderThickness="0" FontWeight="Bold"
+                      Foreground="White"
+                     FontSize="19"
+                     Cursor="Hand" Style="{StaticResource DefaultBtn}" Height="35" Click="Save_Click"/>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
