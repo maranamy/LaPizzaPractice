@@ -1,4 +1,7 @@
 ﻿using LaPizzaPractice.Dto;
+using LaPizzaPractice.Factory;
+using LaPizzaPractice.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using System;
 using System.Collections.Generic;
@@ -19,22 +22,36 @@ namespace LaPizzaPractice.Pages.BossPages
     /// </summary>
     public partial class CreateEditWorker : Window
     {
-        public CreateEditWorker(WorkerDto worker)
+        private bool isNew;
+        public CreateEditWorker(bool status, WorkerDto worker)
         {
-            InitializeComponent(); InitializeComponent();
-            //isNew = existing == null;
-            //worker = existing ?? new WorkerDisplay();
+            InitializeComponent();
 
-            //if (!isNew)
-            //{
-            //    tbName.Text = worker.Name ?? "";
-            //    tbSurname.Text = worker.Surname ?? "";
-            //    tbPhone.Text = worker.Phone ?? "";
-            //    tbEmail.Text = worker.Email ?? "";
-            //    tbLogin.Text = worker.Login ?? "";
-            //    // tbPassword — не заполняем (оставляем пустым)
-            //    // cmbRole.SelectedValue = ... (если есть роли)
-            //}
+            var db = DbContextFactory.GetContext();
+            isNew = status;
+            cmbRole.ItemsSource = db.RolesSet.ToList();
+            cmbRole.DisplayMemberPath = "RoleName";
+            cmbRole.SelectedValuePath = "Id";
+            if (!isNew)
+            {
+                tbName.Text = worker.Name ?? "";
+                tbSurname.Text = worker.Surname ?? "";
+                tbPhone.Text = worker.Phone ?? "";
+                tbEmail.Text = worker.Email ?? "";
+                tbLogin.Text = worker.Login ?? "";
+                pbPassword.Text = worker.Password ?? "";
+                cmbRole.SelectedIndex = db.RolesSet.FirstOrDefault(r => r.RoleName == worker.Role).Id;
+            }
+        }
+
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -67,7 +67,7 @@ namespace LaPizzaPractice.Pages.BossPages
         {
             if (sender is Button btn && btn.Tag is WorkerDto workerDto)
             {
-                var window = new CreateEditWorker(workerDto); // передаём существующий объект
+                var window = new CreateEditWorker(false, workerDto); // передаём существующий объект
                 window.Owner = Window.GetWindow(this);
                 window.ShowDialog();
                 LoadWorkers(); // обновляем список
